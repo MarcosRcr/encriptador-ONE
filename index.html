@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>EncryptMe</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="./img/encriptador_logo.svg" alt="logo">
+            <h1>EncryptMe</h1>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <ul class="social-media">
+            <li><a href="https://www.linkedin.com/in/marcos-roman-cuellarrecillas/" target="_blank"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
+            <li><a href="https://github.com/MarcosRcr" target="_blank"><i class="fa-brands fa-github-alt"></i> GitHub</a></li>
+            <li><a href="#"><i class="fa-solid fa-briefcase"></i> Portfolio</a></li>
+        </ul>
+    </nav>
+    <main class="main">
+        <section class="section">
+            <div class="inText">
+                <textarea   id="Textin" 
+                            class="input-text"
+                            placeholder="Ingrese el texto aquí"
+                            rows="25"
+                            cols="45"></textarea>
+            </div>
+            <div class="alert">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
+            <div class="buttons">
+                <input type="button" value="Encriptar" class="button" id="encrypt-btn">
+                <input type="button" value="Desencriptar" class="button" id="decrypt-btn">
+                <input type="button" value="Limpiar" class="button" id="clear-btn">
+            </div>
+        </section>
+        <aside class="aside">
+            <div class="wait" id="wait">
+                <img src="./img/wait.svg" alt="wait image" class="wait-img">
+                <h2>Ningún mensaje fue encrontrado</h2>
+                <p>Ingresa el texto que desees encriptar o desencriptar</p>
+            </div>
+            <div class="textout">
+                <p class="output-text" id="outText"></p>
+            </div>
+            <div class="buttons">
+                <input type="button" value="Copiar" class="button" id="copy-btn">
+            </div>
+        </aside>
+    </main>
+    <footer class="footer">
+        <strong><p> <span class="copy-left">&copy;</span> <span id="year"></span> Marcos Román Cuéllar Recillas</p></strong>
+        <p>Proyecto hecho con fines educativos por el programa ONE</p>
+    </footer>
+    <script src="./js/main.js"></script>
+    <script src="https://kit.fontawesome.com/bfa0123b3a.js" crossorigin="anonymous"></script>
+</body>
+</html>
