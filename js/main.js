@@ -15,28 +15,36 @@ const inputText = document.getElementById('Textin')
 const wait = document.getElementById('wait')
 const outputText = document.getElementById('outText')
 
-btnEncrypt.onclick = encrypt;
-btnDecrypt.onclick = decrypt;
+btnEncrypt.onclick = () => processText('encrypt');
+btnDecrypt.onclick = () => processText('decrypt');
 btnClear.onclick = clear;
 btnCopy.onclick = copy;
 
-function encrypt() {
+const encryptMapping = {
+    'a': 'ai',
+    'e': 'enter',
+    'i': 'imes',
+    'o': 'ober',
+    'u': 'ufat'
+};
+
+const decryptMapping = {
+    'ai': 'a',
+    'enter': 'e',
+    'imes': 'i',
+    'ober': 'o',
+    'ufat': 'u'
+};
+
+function processText(type) {
     hideFront();
-    let text = saveText();
-    outputText.textContent = encryptText(text);
+    let text = inputText.value.toLowerCase();
+    outputText.textContent = (type === 'encrypt') ? convertText(text, encryptMapping) : convertText(text, decryptMapping);
     showFront();
 }
 
-function decrypt() {
-    hideFront();
-    let text = saveText();
-    outputText.textContent = decryptText(text);
-    showFront();
-}
-
-function saveText() {
-    let text = document.getElementById('Textin');
-    return text.value;
+function convertText(text, mapping) {
+    return text.split('').map(char => mapping[char] || char).join('');
 }
 
 function hideFront(){
@@ -48,47 +56,6 @@ function showFront(){
     wait.style.display = 'none';
     outputText.style.display = 'block';
 }
-
-function encryptText(text) {
-    let textin = text.toLowerCase();
-    let textEncrypted = '';
-
-    for(let i = 0; i < textin.length; i++){
-        if(textin[i] == 'a'){
-            textEncrypted += 'ai';
-        }
-        else if(textin[i] == 'e'){
-            textEncrypted += 'enter';
-        }
-        else if(textin[i] == 'i'){
-            textEncrypted += 'imes';
-        }
-        else if(textin[i] == 'o'){
-            textEncrypted += 'ober';
-        }
-        else if(textin[i] == 'u'){
-            textEncrypted += 'ufat';
-        }
-        else{
-            textEncrypted += textin[i];
-        }
-    }
-    return textEncrypted;
-}
-
-function decryptText(text) {
-    let textin = text.toLowerCase();
-    let textDecrypted = textin;
-
-    textDecrypted = textDecrypted.replace(/ai/g, 'a');
-    textDecrypted = textDecrypted.replace(/enter/g, 'e');
-    textDecrypted = textDecrypted.replace(/imes/g, 'i');
-    textDecrypted = textDecrypted.replace(/ober/g, 'o');
-    textDecrypted = textDecrypted.replace(/ufat/g, 'u');
-
-    return textDecrypted;
-}
-
 
 function clear() {
     inputText.value = '';
