@@ -76,6 +76,7 @@ a{
 
 /* main */
 .main{
+    margin-top: 40px;
     display: flex;
 }
 /* section */
