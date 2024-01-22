@@ -169,6 +169,9 @@ a{
 .aside .buttons .button{
     width: 100px;
 }
+.textout {
+    overflow: hidden;
+}
 
 /* footer */
 .footer{
