@@ -171,6 +171,7 @@ a{
 }
 .textout {
     overflow: hidden;
+    max-width: 100%;
 }
 
 /* footer */
